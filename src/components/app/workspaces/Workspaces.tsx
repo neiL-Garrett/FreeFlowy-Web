@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+import { WorkspaceService } from '@/application/services/domains';
 import { clearRedirectTo } from '@/application/session/sign_in';
 import { invalidToken } from '@/application/session/token';
 import { Workspace } from '@/application/types';
@@ -26,7 +27,6 @@ import LogoutConfirm from '@/components/app/workspaces/LogoutConfirm';
 import WorkspaceList from '@/components/app/workspaces/WorkspaceList';
 import UpgradeAIMax from '@/components/billing/UpgradeAIMax';
 import UpgradePlan from '@/components/billing/UpgradePlan';
-import { WorkspaceService } from '@/application/services/domains';
 import { useCurrentUser } from '@/components/main/app.hooks';
 import {
   DropdownMenu,
@@ -39,6 +39,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { isAppFlowyHosted } from '@/utils/subscription';
 import { openUrl } from '@/utils/url';
 
 import { AccountSettings } from './AccountSettings';
@@ -71,6 +72,7 @@ export function Workspaces() {
   const [openLogoutConfirm, setOpenLogoutConfirm] = useState(false);
 
   const isOwner = currentWorkspace?.owner?.uid.toString() === currentUser?.uid.toString();
+  const canShowBillingActions = isOwner && isAppFlowyHosted();
 
   useEffect(() => {
     setCurrentWorkspace(userWorkspaceInfo?.workspaces.find((workspace) => workspace.id === currentWorkspaceId));
@@ -236,7 +238,7 @@ export function Workspaces() {
                 {t('button.logout')}
               </DropdownMenuItem>
             </DropdownMenuGroup>
-            {isOwner && (
+            {canShowBillingActions && (
               <DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -263,7 +265,7 @@ export function Workspaces() {
         </DropdownMenu>
       </div>
 
-      {isOwner && (
+      {canShowBillingActions && (
         <>
           <UpgradePlan
             onOpen={() => {

@@ -1,10 +1,10 @@
 import { notify } from '@/components/_shared/notify';
 import { getAppFlowyFileUploadUrl, getAppFlowyFileUrl } from '@/utils/file-storage-url';
 import { Log } from '@/utils/log';
-import { hasProAccessFromPlans } from '@/utils/subscription';
+import { hasProAccessFromPlans, isAppFlowyHosted } from '@/utils/subscription';
 
-import { getAxios, handleAPIError } from './core';
 import { getActiveSubscription } from './billing-api';
+import { getAxios, handleAPIError } from './core';
 
 export { uploadFileMultipart } from './multipart-upload';
 export { MULTIPART_THRESHOLD } from './multipart-upload.types';
@@ -19,8 +19,9 @@ export async function uploadFile(
   Log.debug('[UploadFile] starting', { fileName: file.name, fileSize: file.size });
   const url = getAppFlowyFileUploadUrl(workspaceId, viewId);
 
-  // Check file size, if over 7MB, check subscription plan
-  if (file.size > 7 * 1024 * 1024) {
+  // Check file size, if over 7MB, check subscription plan on official hosted instances only.
+  // Self-hosted deployments should not be blocked by billing gates.
+  if (isAppFlowyHosted() && file.size > 7 * 1024 * 1024) {
     const plan = await getActiveSubscription(workspaceId);
 
     if (!hasProAccessFromPlans(plan)) {
@@ -62,9 +63,13 @@ export async function uploadFile(
     // eslint-disable-next-line
   } catch (e: any) {
     if (e.response?.status === 413) {
+      const message = isAppFlowyHosted()
+        ? 'File size is too large. Please upgrade your plan for unlimited uploads.'
+        : 'File size is too large for this server.';
+
       return Promise.reject({
         code: 413,
-        message: 'File size is too large. Please upgrade your plan for unlimited uploads.',
+        message,
       });
     }
 
