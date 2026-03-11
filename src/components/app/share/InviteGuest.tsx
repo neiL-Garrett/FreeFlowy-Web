@@ -1,8 +1,9 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'sonner';
 
 import { ERROR_CODE } from '@/application/constants';
+import { AccessService, BillingService } from '@/application/services/domains';
 import {
   AccessLevel,
   IPeopleWithAccessType,
@@ -16,7 +17,6 @@ import { ReactComponent as ArrowDownIcon } from '@/assets/icons/alt_arrow_down.s
 import { ReactComponent as EditIcon } from '@/assets/icons/edit.svg';
 import { ReactComponent as ViewIcon } from '@/assets/icons/show.svg';
 import { notify } from '@/components/_shared/notify';
-import { AccessService, BillingService } from '@/application/services/domains';
 import { useCurrentWorkspaceId, useUserWorkspaceInfo } from '@/components/app/app.hooks';
 import { Button } from '@/components/ui/button';
 import {
@@ -81,6 +81,7 @@ export function InviteGuest({
   const [upgradeLoading, setUpgradeLoading] = useState(false);
   const userWorkspaceInfo = useUserWorkspaceInfo();
   const isOwner = userWorkspaceInfo?.selectedWorkspace?.role === Role.Owner;
+  const isOfficialHost = useMemo(() => isAppFlowyHosted(), []);
 
   // Email suggestions based on search input
   const emailSuggestions = useMemo(() => {
@@ -389,12 +390,13 @@ export function InviteGuest({
 
     if (!workspaceId) return;
     if (!isOwner) {
-      toast.error('Please ask the workspace owner to upgrade to Pro to unlock guest editors.');
+      toast.error('Please ask the workspace owner to enable guest editors.');
       return;
     }
 
-    if (!isAppFlowyHosted()) {
-      // Self-hosted instances have Pro features enabled by default
+    if (!isOfficialHost) {
+      toast.error('Guest editors are currently unavailable on this self-hosted server.');
+      setUpgradeModalOpen(false);
       return;
     }
 
@@ -413,7 +415,7 @@ export function InviteGuest({
     } finally {
       setUpgradeLoading(false);
     }
-  }, [currentWorkspaceId, isOwner]);
+  }, [currentWorkspaceId, isOfficialHost, isOwner]);
 
   const handleSendInvites = useCallback(async () => {
     if (!currentWorkspaceId) return;
@@ -431,7 +433,12 @@ export function InviteGuest({
       // eslint-disable-next-line
     } catch (error: any) {
       if (error.code === ERROR_CODE.NOT_HAS_PERMISSION_TO_INVITE_GUEST) {
-        setUpgradeModalOpen(true);
+        if (isOfficialHost) {
+          setUpgradeModalOpen(true);
+        } else {
+          notify.error('Guest editors are currently unavailable on this self-hosted server.');
+        }
+
         return;
       }
 
@@ -446,7 +453,7 @@ export function InviteGuest({
 
     // Notify parent component to refresh the people list
     await onInviteSuccess();
-  }, [currentWorkspaceId, emailTags, onInviteSuccess, viewId, t, selectedAccessLevel]);
+  }, [currentWorkspaceId, emailTags, isOfficialHost, onInviteSuccess, viewId, t, selectedAccessLevel]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
@@ -612,23 +619,24 @@ export function InviteGuest({
         </Button>
       </div>
 
-      {/* Upgrade Confirmation Dialog */}
-      <Dialog open={upgradeModalOpen} onOpenChange={setUpgradeModalOpen}>
-        <DialogContent size='sm'>
-          <DialogHeader>
-            <DialogTitle>{t('shareAction.upgradeConfirmTitle')}</DialogTitle>
-            <DialogDescription>{t('shareAction.upgradeConfirmDescription')}</DialogDescription>
-          </DialogHeader>
-          <DialogFooter>
-            <Button variant='outline' onClick={() => setUpgradeModalOpen(false)}>
-              {t('button.cancel')}
-            </Button>
-            <Button onClick={handleUpgrade} loading={upgradeLoading}>
-              {t('shareAction.upgrade')}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      {isOfficialHost && (
+        <Dialog open={upgradeModalOpen} onOpenChange={setUpgradeModalOpen}>
+          <DialogContent size='sm'>
+            <DialogHeader>
+              <DialogTitle>{t('shareAction.upgradeConfirmTitle')}</DialogTitle>
+              <DialogDescription>{t('shareAction.upgradeConfirmDescription')}</DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <Button variant='outline' onClick={() => setUpgradeModalOpen(false)}>
+                {t('button.cancel')}
+              </Button>
+              <Button onClick={handleUpgrade} loading={upgradeLoading}>
+                {t('shareAction.upgrade')}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      )}
     </>
   );
 }

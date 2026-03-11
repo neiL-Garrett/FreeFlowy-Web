@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'sonner';
 
+import { WorkspaceService } from '@/application/services/domains';
 import { SubscriptionPlan, Workspace, WorkspaceMember } from '@/application/types';
 import { ReactComponent as TipIcon } from '@/assets/icons/warning.svg';
-import { WorkspaceService } from '@/application/services/domains';
 import { useGetSubscriptions } from '@/components/app/app.hooks';
 import { useCurrentUser } from '@/components/main/app.hooks';
 import { Button } from '@/components/ui/button';
@@ -32,9 +32,10 @@ function InviteMember({
   const [, setSearch] = useSearchParams();
 
   const currentUser = useCurrentUser();
-  const [memberCount, setMemberCount] = React.useState<number>(0);
+  const [memberCount, setMemberCount] = useState<number>(0);
   const memberListRef = useRef<WorkspaceMember[]>([]);
   const isOwner = workspace.owner?.uid.toString() === currentUser?.uid.toString();
+  const isOfficialHost = useMemo(() => isAppFlowyHosted(), []);
 
   const loadMembers = useCallback(async () => {
     try {
@@ -46,10 +47,10 @@ function InviteMember({
     }
   }, [currentWorkspaceId]);
 
-  const [activeSubscriptionPlan, setActiveSubscriptionPaln] = React.useState<SubscriptionPlan | null>(null);
+  const [activeSubscriptionPlan, setActiveSubscriptionPaln] = useState<SubscriptionPlan | null>(null);
 
   const loadSubscription = useCallback(async () => {
-    if (!isAppFlowyHosted()) {
+    if (!isOfficialHost) {
       setActiveSubscriptionPaln(SubscriptionPlan.Pro);
       return;
     }
@@ -68,10 +69,12 @@ function InviteMember({
       setActiveSubscriptionPaln(SubscriptionPlan.Free);
       console.error(e);
     }
-  }, [getSubscriptions]);
+  }, [getSubscriptions, isOfficialHost]);
 
   const isExceed = useMemo(() => {
     if (activeSubscriptionPlan === null) return false;
+    if (!isOfficialHost) return false;
+
     if (activeSubscriptionPlan === SubscriptionPlan.Free) {
       return memberCount >= 2;
     }
@@ -81,7 +84,7 @@ function InviteMember({
     }
 
     return false;
-  }, [activeSubscriptionPlan, memberCount]);
+  }, [activeSubscriptionPlan, isOfficialHost, memberCount]);
 
   const handleOk = async () => {
     if (!currentWorkspaceId) return;
@@ -118,11 +121,13 @@ function InviteMember({
   }, [open, loadMembers, loadSubscription]);
 
   const handleUpgrade = useCallback(async () => {
+    if (!isOfficialHost) return;
+
     setSearch((prev) => {
       prev.set('action', 'change_plan');
       return prev;
     });
-  }, [setSearch]);
+  }, [isOfficialHost, setSearch]);
 
   if (!isOwner) return null;
 
@@ -141,9 +146,11 @@ function InviteMember({
           >
             <TipIcon className={'h-4 w-4 text-function-warning'} />
             {t('inviteMember.inviteFailedMemberLimit')}
-            <span onClick={handleUpgrade} className={'cursor-pointer text-text-action hover:underline'}>
-              {t('inviteMember.upgrade')}
-            </span>
+            {isOfficialHost && (
+              <span onClick={handleUpgrade} className={'cursor-pointer text-text-action hover:underline'}>
+                {t('inviteMember.upgrade')}
+              </span>
+            )}
           </div>
           <div className='grid gap-4'>
             <div className='grid gap-3'>

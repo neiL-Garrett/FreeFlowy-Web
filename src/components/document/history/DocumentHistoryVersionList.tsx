@@ -22,6 +22,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 import { cn } from '@/lib/utils';
+import { isAppFlowyHosted } from '@/utils/subscription';
 
 export const VersionList = memo(function VersionList({
   versions,
@@ -69,6 +70,7 @@ export const VersionList = memo(function VersionList({
     event.preventDefault();
     onOnlyShowMineChange(!onlyShowMine);
   }, [onOnlyShowMineChange, onlyShowMine]);
+  const showUpgradeHint = !isPro && isAppFlowyHosted();
 
   return (
     <div className='flex h-full flex-col'>
@@ -155,7 +157,7 @@ export const VersionList = memo(function VersionList({
           );
         })}
       </div>
-      {!isPro && (
+      {showUpgradeHint && (
         <div className='m-3 flex items-center gap-2 rounded-300 bg-fill-featured-light p-3'>
           <CrownIcon className='h-5 w-5' />
           <span className='text-xs text-text-featured'>
