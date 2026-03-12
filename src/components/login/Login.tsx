@@ -55,7 +55,7 @@ export function Login({ redirectTo }: { redirectTo: string }) {
           className={'flex w-full cursor-pointer flex-col items-center justify-center gap-5'}
         >
           <Logo className={'h-9 w-9'} />
-          <div className={'text-xl font-semibold'}>{t('welcomeTo')} AppFlowy</div>
+          <div className={'text-xl font-semibold'}>{t('welcomeTo')} FreeFlowy</div>
         </div>
         <EmailLogin redirectTo={redirectTo} />
         <div

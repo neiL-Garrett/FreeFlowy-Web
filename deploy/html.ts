@@ -6,7 +6,7 @@ import { indexPath } from './config';
 import { logger } from './logger';
 import { type PublishErrorPayload } from './publish-error';
 
-const DEFAULT_DESCRIPTION = 'Write, share, and publish docs quickly on AppFlowy.\nGet started for free.';
+const DEFAULT_DESCRIPTION = 'Write, share, and publish docs quickly on FreeFlowy.\nGet started for free.';
 const DEFAULT_IMAGE = '/og-image.png';
 const DEFAULT_FAVICON = '/appflowy.ico';
 
@@ -18,12 +18,12 @@ const MARKETING_META: Record<
   }
 > = {
   '/after-payment': {
-    title: 'Payment Success | AppFlowy',
-    description: 'Payment success on AppFlowy',
+    title: 'Payment Success | FreeFlowy',
+    description: 'Payment success on FreeFlowy',
   },
   '/login': {
-    title: 'Login | AppFlowy',
-    description: 'Login to AppFlowy',
+    title: 'Login | FreeFlowy',
+    description: 'Login to FreeFlowy',
   },
 };
 
@@ -66,7 +66,7 @@ export const renderPublishPage = ({ hostname, pathname, metaData, publishError }
   const $ = load(htmlData);
 
   const description = DEFAULT_DESCRIPTION;
-  let title = 'AppFlowy';
+  let title = 'FreeFlowy';
   const url = `https://${hostname ?? ''}${pathname}`;
   let image = DEFAULT_IMAGE;
   let favicon = DEFAULT_FAVICON;
@@ -101,7 +101,7 @@ export const renderPublishPage = ({ hostname, pathname, metaData, publishError }
         titleList.push('|');
       }
 
-      titleList.push('AppFlowy');
+      titleList.push('FreeFlowy');
       title = titleList.join(' ');
 
       try {
@@ -130,7 +130,7 @@ export const renderPublishPage = ({ hostname, pathname, metaData, publishError }
   setOrUpdateMetaTag($, 'meta[property="og:description"]', 'property', description);
   setOrUpdateMetaTag($, 'meta[property="og:image"]', 'property', image);
   setOrUpdateMetaTag($, 'meta[property="og:url"]', 'property', url);
-  setOrUpdateMetaTag($, 'meta[property="og:site_name"]', 'property', 'AppFlowy');
+  setOrUpdateMetaTag($, 'meta[property="og:site_name"]', 'property', 'FreeFlowy');
   setOrUpdateMetaTag($, 'meta[property="og:type"]', 'property', 'website');
   setOrUpdateMetaTag($, 'meta[name="twitter:card"]', 'name', 'summary_large_image');
   setOrUpdateMetaTag($, 'meta[name="twitter:title"]', 'name', title);

@@ -1,5 +1,5 @@
 {
-  "appName": "AppFlowy",
+  "appName": "FreeFlowy",
   "defaultUsername": "Me",
   "welcomeText": "Welcome to @:appName",
   "welcomeTo": "Welcome to",
@@ -160,14 +160,14 @@
     "csv": "CSV",
     "copyLink": "Copy link",
     "publishToTheWeb": "Publish to Web",
-    "publishToTheWebHint": "Create a website with AppFlowy",
+    "publishToTheWebHint": "Create a website with FreeFlowy",
     "publish": "Publish",
     "unPublish": "Unpublish",
     "visitSite": "Visit site",
     "exportAsTab": "Export as",
     "publishTab": "Publish",
     "shareTab": "Share",
-    "publishOnAppFlowy": "Publish on AppFlowy",
+    "publishOnAppFlowy": "Publish on FreeFlowy",
     "shareTabTitle": "Invite to collaborate",
     "shareTabDescription": "For easy collaboration with anyone",
     "copyLinkSuccess": "Copied link to clipboard",
@@ -313,7 +313,7 @@
     "placeholder": "Hi {{name}}, how can I help you today?",
     "dear": "Dear",
     "input": {
-      "placeholder": "Ask AppFlowy AI",
+      "placeholder": "Ask FreeFlowy AI",
       "placeholderFormat": "AI response will generate with the format you define above",
       "button": {
         "format": "Format response",
@@ -1074,12 +1074,12 @@
       "menuLabel": "AI Settings",
       "keys": {
         "enableAISearchTitle": "AI Search",
-        "aiSettingsDescription": "Choose your preferred model to power AppFlowy AI. Now includes GPT 4-o, Claude 3,5, Llama 3.1, and Mistral 7B",
+        "aiSettingsDescription": "Choose your preferred model to power FreeFlowy AI. Now includes GPT 4-o, Claude 3,5, Llama 3.1, and Mistral 7B",
         "loginToEnableAIFeature": "AI features are only enabled after logging in with @:appName Cloud. If you don't have an @:appName account, go to 'My Account' to sign up",
         "llmModel": "Language Model",
         "llmModelType": "Language Model Type",
         "downloadLLMPrompt": "Download {}",
-        "downloadAppFlowyOfflineAI": "Downloading AI offline package will enable AI to run on your device. Do you want to continue?",
+        "downloadAppFlowyOfflineAI": "Downloading AI offline package will enable FreeFlowy AI to run on your device. Do you want to continue?",
         "downloadLLMPromptDetail": "Downloading {} local model will take up to {} of storage. Do you want to continue?",
         "downloadBigFilePrompt": "It may take around 10 minutes to complete the download",
         "downloadAIModelButton": "Download",
@@ -1096,7 +1096,7 @@
         "offlineAIInstruction1": "Follow the",
         "offlineAIInstruction2": "instruction",
         "offlineAIInstruction3": "to enable offline AI.",
-        "offlineAIDownload1": "If you have not downloaded the AppFlowy AI, please",
+        "offlineAIDownload1": "If you have not downloaded FreeFlowy AI, please",
         "offlineAIDownload2": "download",
         "offlineAIDownload3": "it first",
         "activeOfflineAI": "Active",
@@ -1370,7 +1370,7 @@
       "customPathPrompt": "Storing the @:appName data folder in a cloud-synced folder such as Google Drive can pose risks. If the database within this folder is accessed or modified from multiple locations at the same time, it may result in synchronization conflicts and potential data corruption",
       "importAppFlowyData": "Import Data from External @:appName Folder",
       "importingAppFlowyDataTip": "Data import is in progress. Please do not close the app",
-      "importAppFlowyDataDescription": "Copy data from an external @:appName data folder and import it into the current AppFlowy data folder",
+      "importAppFlowyDataDescription": "Copy data from an external @:appName data folder and import it into the current FreeFlowy data folder",
       "importSuccess": "Successfully imported the @:appName data folder",
       "importFailed": "Importing the @:appName data folder failed",
       "importGuide": "For further details, please check the referenced document"
@@ -3011,7 +3011,7 @@
     "reportPage": "Report page",
     "databaseHasNotBeenPublished": "Publishing a database is not supported yet.",
     "createdWith": "Created with",
-    "downloadApp": "Download AppFlowy",
+    "downloadApp": "Download FreeFlowy",
     "copy": {
       "codeBlock": "The content of code block has been copied to the clipboard",
       "imageBlock": "The image link has been copied to the clipboard",
@@ -3024,7 +3024,7 @@
     "publishFailed": "Failed to publish",
     "unpublishFailed": "Failed to unpublish",
     "noAccessToVisit": "No access to this page...",
-    "createWithAppFlowy": "Create a website with AppFlowy",
+    "createWithAppFlowy": "Create a website with FreeFlowy",
     "fastWithAI": "Fast and easy with AI.",
     "tryItNow": "Try it now",
     "onlyGridViewCanBePublished": "Only Grid view can be published",
@@ -3042,7 +3042,7 @@
     "selectWorkspace": "Select a workspace",
     "addTo": "Add to",
     "duplicateSuccessfully": "Added to your workspace",
-    "duplicateSuccessfullyDescription": "Don't have AppFlowy installed? The download will start automatically after you click 'Download'.",
+    "duplicateSuccessfullyDescription": "Don't have FreeFlowy installed? The download will start automatically after you click 'Download'.",
     "downloadIt": "Download",
     "openApp": "Open in app",
     "duplicateFailed": "Duplicated failed",
@@ -3069,7 +3069,7 @@
     "signingIn": "Signing in...",
     "moreOptions": "More options",
     "collapse": "Collapse",
-    "signInAgreement": "By clicking \"Continue\" above, you agreed to AppFlowy's",
+    "signInAgreement": "By clicking \"Continue\" above, you agreed to FreeFlowy's",
     "and": "and",
     "termOfUse": "Terms",
     "privacyPolicy": "Privacy Policy",
@@ -3244,7 +3244,7 @@
     "joinWorkspace": "Join workspace",
     "success": "You've successfully joined the workspace",
     "successMessage": "You can now access all the pages and workspaces within it.",
-    "openWorkspace": "Open AppFlowy",
+    "openWorkspace": "Open FreeFlowy",
     "alreadyAccepted": "You've already accepted the invitation",
     "errorModal": {
       "title": "Something went wrong",
@@ -3270,7 +3270,7 @@
     "title": "Approve Workspace Join Request",
     "requestSummary": "<user/> requests to join <workspace/> and access <page/>",
     "upgrade": "upgrade",
-    "downloadApp": "Download AppFlowy",
+    "downloadApp": "Download FreeFlowy",
     "approveButton": "Approve",
     "approveSuccess": "Approved successfully",
     "approveError": "Failed to approve, ensure the workspace plan limit is not exceeded",
@@ -3291,7 +3291,7 @@
   "upgradePlanModal": {
     "title": "Upgrade to Pro",
     "message": "{{name}} has reached the free member limit. Upgrade to the Pro Plan to invite more members.",
-    "upgradeSteps": "How to upgrade your plan on AppFlowy:",
+    "upgradeSteps": "How to upgrade your plan on FreeFlowy:",
     "step1": "1. Go to Settings",
     "step2": "2. Click on 'Plan'",
     "step3": "3. Select 'Change Plan'",
@@ -3443,11 +3443,11 @@
     "cancelPlan": {
       "title": "Sorry to see you go",
       "success": "Your subscription has been canceled successfully",
-      "description": "We're sorry to see you go. We'd love to hear your feedback to help us improve AppFlowy. Please take a moment to answer a few questions.",
+      "description": "We're sorry to see you go. We'd love to hear your feedback to help us improve FreeFlowy. Please take a moment to answer a few questions.",
       "commonOther": "Other",
       "otherHint": "Write your answer here",
       "questionOne": {
-        "question": "What prompted you to cancel your AppFlowy Pro subscription?",
+        "question": "What prompted you to cancel your FreeFlowy Pro subscription?",
         "answerOne": "Cost too high",
         "answerTwo": "Features did not meet expectations",
         "answerThree": "Found a better alternative",
@@ -3455,7 +3455,7 @@
         "answerFive": "Service issue or technical difficulties"
       },
       "questionTwo": {
-        "question": "How likely are you to consider re-subscribing to AppFlowy Pro in the future?",
+        "question": "How likely are you to consider re-subscribing to FreeFlowy Pro in the future?",
         "answerOne": "Very likely",
         "answerTwo": "Somewhat likely",
         "answerThree": "Not sure",
@@ -3470,7 +3470,7 @@
         "answerFour": "Access to local AI models"
       },
       "questionFour": {
-        "question": "How would you describe your overall experience with AppFlowy?",
+        "question": "How would you describe your overall experience with FreeFlowy?",
         "answerOne": "Great",
         "answerTwo": "Good",
         "answerThree": "Average",
@@ -3496,7 +3496,7 @@
   "publishSelectedViews": "Publish {{count}} selected views",
   "untitled": "Untitled",
   "addToWorkspace": "Added to your workspace",
-  "downloadTip": "Don't have AppFlowy Apps installed? Download <link/>.",
+  "downloadTip": "Don't have FreeFlowy apps installed? Download <link/>.",
   "here": "here",
   "openInBrowser": "Open in browser",
   "openInApp": "Open in app",
@@ -3552,7 +3552,7 @@
       "description": "Congratulations! You just unlocked more workspace members and unlimited AI responses. 🎉"
     },
     "inviteMember": {
-      "title": "Join <workspace /> on AppFlowy",
+      "title": "Join <workspace /> on FreeFlowy",
       "description": "You've been invited by <who />\nto join the workspace using this email:\n<email/>\nIf this isn't correct, please ask your collaborators to resend the invite.",
       "joinWorkspace": "Join workspace",
       "invalid": "The invitation link has expired",
@@ -3580,7 +3580,7 @@
     },
     "unauthorized": {
       "title": "Sign in required",
-      "description": "You need to sign in to access this page. Please sign in with your AppFlowy account.",
+      "description": "You need to sign in to access this page. Please sign in with your FreeFlowy account.",
       "signIn": "Sign in"
     },
     "forbidden": {
@@ -3595,7 +3595,7 @@
     },
     "networkError": {
       "title": "Connection error",
-      "description": "Unable to connect to AppFlowy. Please check your internet connection and try again.",
+      "description": "Unable to connect to FreeFlowy. Please check your internet connection and try again.",
       "retry": "Retry connection"
     },
     "invalidLink": {

@@ -143,7 +143,7 @@ export default function Help() {
               color={'inherit'}
               variant={'text'}
             >
-              Twitter - @appflowy
+              X / Twitter
             </Button>
             <Button
               size={'small'}
@@ -154,7 +154,7 @@ export default function Help() {
               color={'inherit'}
               variant={'text'}
             >
-              Reddit - r/appflowy
+              Reddit community
             </Button>
           </div>
         </Popover>

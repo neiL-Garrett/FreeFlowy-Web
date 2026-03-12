@@ -279,7 +279,7 @@ function RecordNotFound({
         </>
       )}
 
-      <img src={emptyImageSrc} alt={'AppFlowy'} />
+      <img src={emptyImageSrc} alt={'FreeFlowy'} />
     </div>
   );
 }
