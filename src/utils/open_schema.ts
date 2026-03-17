@@ -1,4 +1,4 @@
-import { androidDownloadLink, desktopDownloadLink, openAppFlowySchema } from '@/utils/url';
+import { desktopDownloadLink, openAppFlowySchema } from '@/utils/url';
 
 type OS = 'ios' | 'android' | 'other';
 
@@ -112,14 +112,7 @@ export function openOrDownload (schema?: string) {
   const os = getOS();
 
   if (os === 'ios' || os === 'android') {
-    const universalLink = 'https://appflowy.com/download';
-    const intentUrl = `intent://appflowy.com/download#Intent;` +
-      'scheme=https;' +
-      'package=io.appflowy.app;' +
-      `S.browser_fallback_url=${encodeURIComponent(androidDownloadLink)};` +
-      'end';
-
-    window.location.href = os === 'ios' ? universalLink : intentUrl;
+    window.location.href = desktopDownloadLink;
     return;
   }
 

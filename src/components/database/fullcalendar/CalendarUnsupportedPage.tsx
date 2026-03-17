@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ReactComponent as CalendarLogo } from '@/assets/icons/warning_logo.svg';
 import { Button } from '@/components/ui/button';
+import { downloadPage } from '@/utils/url';
 
 export function CalendarUnsupportedPage() {
   const { t } = useTranslation();
@@ -20,15 +21,15 @@ export function CalendarUnsupportedPage() {
       
       {/* Description */}
       <p className="text-text-caption text-center mb-8 max-w-md">
-        Calendar view is not supported on this device. For the best calendar experience, please download the AppFlowy mobile app.
+        Calendar view is not supported on this device. For the best calendar experience, please download the FreeFlowy app.
       </p>
       
       {/* Buttons */}
       <div className="flex flex-col max-sm:w-full sm:flex-row gap-3">
         <Button
-          onClick={() => window.open('https://appflowy.com/download', '_blank')}
+          onClick={() => window.open(downloadPage, '_blank')}
         >
-          Download AppFlowy
+          Download FreeFlowy
         </Button>
         <Button
           variant="outline"

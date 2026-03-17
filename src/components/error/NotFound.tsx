@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ReactComponent as NoAccessLogo } from '@/assets/icons/no_access.svg';
 import LandingPage from '@/components/_shared/landing-page/LandingPage';
 import { getPublishError } from '@/utils/publish-error';
+import { downloadPage } from '@/utils/url';
 
 const NotFound = () => {
   const { t } = useTranslation();
@@ -50,7 +51,7 @@ const NotFound = () => {
           </>
         }
         primaryAction={{
-          onClick: () => window.open('https://appflowy.com/download', '_self'),
+          onClick: () => window.open(downloadPage, '_self'),
           label: t('publish.downloadApp'),
         }}
         secondaryAction={{
