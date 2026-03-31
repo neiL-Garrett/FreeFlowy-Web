@@ -1,7 +1,7 @@
-<h1 align="center" style="border-bottom: none">AppFlowy Web<br>
+<h1 align="center" style="border-bottom: none">FreeFlowy Web<br>
 ⭐️ The Open Source Notion Alternative ⭐️
 </h1>
-<p align="center"> Use AppFlowy right in <a href="https://www.appflowy.com">your browser</a><br>
+<p align="center"> Use FreeFlowy right in your browser<br>
 </p>
 
 
@@ -9,8 +9,8 @@
 Bring projects, wikis, and teams together with AI
 </p>
 <p align="center">
-    <a href="http://appflowy.com"><b>Web</b></a> •
-    <a href="https://appflowy.com/download">Apps</a> •
+    <a href="https://github.com/neiL-Garrett/FreeFlowy-Web"><b>Web</b></a> •
+    <a href="https://github.com/neiL-Garrett/FreeFlowy">Apps</a> •
     <a href="https://discord.gg/9Q2xaN37tV"><b>Discord</b></a> •
     <a href="https://twitter.com/appflowy"><b>Twitter</b></a> •
     <a href="https://www.reddit.com/r/appflowy/"><b>Reddit</b></a> •
@@ -18,15 +18,15 @@ Bring projects, wikis, and teams together with AI
 </p>
 
 
-![appflowy_web](https://github.com/user-attachments/assets/beb79630-b134-4de0-b464-d164cd0f9adf)
-![appflowy_web_property_types](https://github.com/user-attachments/assets/074f859d-2e7e-4bf0-ac00-ba0b36e808e5)
-![appflowy_web_grid_view](https://github.com/user-attachments/assets/e1b8a950-5b57-4279-90aa-3917aae2f83b)
-![appflowy_web_kanban_board_dark_mode](https://github.com/user-attachments/assets/3a6fda95-e57b-45d0-ae88-f2df362675ce)
-![appflowy_web_open_row](https://github.com/user-attachments/assets/1c5a2891-90e0-4831-bfd5-89229235bbb4)
-![appflowy_web_open_row_in_full_page](https://github.com/user-attachments/assets/011a9408-7ae4-4144-b114-3613e699f6b5)
-![appflowy_web_quick_note_small_window](https://github.com/user-attachments/assets/8b72462c-00a2-4398-8d5d-6ee982f6a30e)
-![appflowy_web_quick_note_large](https://github.com/user-attachments/assets/5c633e60-6f34-454c-91db-236a1b78966a)
-![appflowy_web_share](https://github.com/user-attachments/assets/64b9955d-b11f-4aa1-b32b-ea79ea7f3566)
+![freeflowy_web](https://github.com/user-attachments/assets/beb79630-b134-4de0-b464-d164cd0f9adf)
+![freeflowy_web_property_types](https://github.com/user-attachments/assets/074f859d-2e7e-4bf0-ac00-ba0b36e808e5)
+![freeflowy_web_grid_view](https://github.com/user-attachments/assets/e1b8a950-5b57-4279-90aa-3917aae2f83b)
+![freeflowy_web_kanban_board_dark_mode](https://github.com/user-attachments/assets/3a6fda95-e57b-45d0-ae88-f2df362675ce)
+![freeflowy_web_open_row](https://github.com/user-attachments/assets/1c5a2891-90e0-4831-bfd5-89229235bbb4)
+![freeflowy_web_open_row_in_full_page](https://github.com/user-attachments/assets/011a9408-7ae4-4144-b114-3613e699f6b5)
+![freeflowy_web_quick_note_small_window](https://github.com/user-attachments/assets/8b72462c-00a2-4398-8d5d-6ee982f6a30e)
+![freeflowy_web_quick_note_large](https://github.com/user-attachments/assets/5c633e60-6f34-454c-91db-236a1b78966a)
+![freeflowy_web_share](https://github.com/user-attachments/assets/64b9955d-b11f-4aa1-b32b-ea79ea7f3566)
 
 ## Table of Contents
 
@@ -52,11 +52,11 @@ Bring projects, wikis, and teams together with AI
 - Create multiple public and private spaces to better organize your content
 
 ## Installation
-### Cloud: we host AppFlowy for you
-Sign up for a free account on <a href="https://appflowy.com">appflowy.com</a>—it's the fastest way to get started with AppFlowy without hassles
+### Cloud: self-host FreeFlowy Cloud
+Set up your own FreeFlowy Cloud stack with the deployment docs in the cloud repo.
 
-### Self-hosted: host AppFlowy on your own server
-Take charge of your data; no vendor lock-in. Follow our <a href="https://appflowy.com/docs/self-host-appflowy-overview">deployment guide</a> to get started.
+### Self-hosted: host FreeFlowy on your own server
+Take charge of your data; no vendor lock-in. Follow the <a href="https://github.com/neiL-Garrett/FreeFlowy-Cloud/blob/main/doc/DEPLOYMENT.md">FreeFlowy Cloud deployment guide</a> to get started.
 Join our <a href="https://discord.gg/FFmDE99bgA">Discord</a> server to get help!
 
 ## Built with 🛠️
@@ -71,15 +71,15 @@ Join our <a href="https://discord.gg/FFmDE99bgA">Discord</a> server to get help!
 Check out the [development guide](./doc/DEVELOPMENT_GUIDE.md) for more details
 
 ## Deployment
-Once AppFlowy Cloud has been setup, you can follow the [deployment guide](https://appflowy.com/docs)
-to deploy AppFlowy Web.
+Once FreeFlowy Cloud has been set up, use the deployment guide in the cloud repo
+to deploy FreeFlowy Web.
 
 ## Documentation
 
 - **[Deployment Guide](doc/DEPLOYMENT.md)** - Detailed environment configuration, architecture diagrams, and troubleshooting
-- **[AppFlowy Cloud Repository](https://github.com/AppFlowy-IO/AppFlowy-Cloud)** - Backend setup and configuration
-- **[Official Documentation](https://appflowy.com/docs)** - Complete AppFlowy documentation
+- **[FreeFlowy Cloud Repository](https://github.com/neiL-Garrett/FreeFlowy-Cloud)** - Backend setup and configuration
+- **[FreeFlowy Desktop Repository](https://github.com/neiL-Garrett/FreeFlowy)** - Desktop app setup and releases
 
 ## License
-Distributed under the AGPLv3 License. See [`LICENSE.md`](https://github.com/AppFlowy-IO/AppFlowy-Web/blob/main/LICENSE) for
+Distributed under the AGPLv3 License. See [`LICENSE.md`](https://github.com/neiL-Garrett/FreeFlowy-Web/blob/main/LICENSE) for
 more information.
